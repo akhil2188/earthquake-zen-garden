@@ -13,7 +13,7 @@ const useStyles = makeStyles({
       minWidth: '100px',
       borderBottom: 'none !important',
       paddingBottom: '2px',
-      fontWeight: '600'
+      fontWeight: '600 !important'
     },
     tableCellRoot: {
       padding: "0px"
