@@ -26,7 +26,6 @@ export const TableComponent = ({ data }) => {
     const [ sortField, setSortField ] = useState('');
 
     const sortData = (field) => {
-      console.log(field);
       let sortDir = 1;
       const dataForSort = [...stateData];
       if(sortField === field){
