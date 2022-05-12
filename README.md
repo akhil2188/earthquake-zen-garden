@@ -18,6 +18,6 @@ This App is created using the react router for three different views. It has a h
 
 - Clone the repo using the Github clone link.
 - Run the following commands:
- - cd client
+ - cd earthquake-zen-garden
  - npm install
  - npm start
