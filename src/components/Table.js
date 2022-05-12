@@ -34,9 +34,7 @@ export const TableComponent = ({ data }) => {
       dataForSort.sort((a,b) => (a.properties[field] > b.properties[field]) ? 1*sortDir : ((b.properties[field] > a.properties[field]) ? -1*sortDir : 0*sortDir))
       setSortDirection(sortDir);
       setSortField(field);
-      console.log("Non Sorted Data", stateData);
       setStateData(dataForSort);
-      console.log("Sorted Data", dataForSort);
     }
 
     const getSortIconCss = (field) => {
