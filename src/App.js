@@ -1,23 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useMemo } from 'react';
+import { Home } from './components/Home';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useParams
+} from "react-router-dom";
+import { Profile } from "../src/components/Profile";
+import { Detail } from './components/Detail';
+import { getEarthQuakeProfile, getEarthQuakeSite, getEarthQuakeAllData } from './data/EarthQuakeData';
 
-function App() {
+
+function DetailPageRenderer() {
+ 
+  let { detailId } = useParams();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <Detail dataId={detailId} />
+  );
+}
+
+const App = () => {
+  const earthQuakeData = useMemo(getEarthQuakeAllData,[]);
+  const profileData = useMemo(getEarthQuakeProfile, []);
+  const siteData = useMemo(getEarthQuakeSite,[]);
+
+  return (
+    <div>
+      <div className="navbar">
+        <div className="menu-items">
+          <Router>
+            <div>
+              <nav>
+                <ul className="header">
+                  <li>
+                    <Link to="/">{<img style={{height:'40px',width:'40px'}} src={siteData.logoImage} alt='Logo'/> }</Link>
+                  </li>
+                  <h1 style={{color: '#777777'}}>{siteData.title}</h1>
+                  <li>
+                    <Link to="/profile" >{`Welcome ${profileData.firstName}`}</Link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <Routes>
+              <Route path="/" exact element={<Home data={earthQuakeData} />} />
+              <Route path="/profile" element={<Profile data={profileData} />} />
+              <Route path="/details/:detailId" element={<DetailPageRenderer />} />
+            </Routes>
+          </Router>
+        </div>
+      </div>
     </div>
   );
 }

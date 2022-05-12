@@ -1,0 +1,27 @@
+h3 {
+    text-align: center;
+    color: #444444;
+}
+
+table{
+    width: none;
+    max-width: none;
+}
+
+.clickCellItem {
+    text-decoration: underline;
+    color: #6600cc;
+    cursor: pointer;
+}
+
+.asc-sort:after {
+    content: ' \02C4';
+    font-weight: 600;
+    color: #0077b6;
+}
+
+.dsc-sort:after {
+    content: ' \02C5';
+    font-weight: 600;
+    color: #0077b6;
+}

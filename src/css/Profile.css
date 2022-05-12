@@ -1,0 +1,29 @@
+.userProfile {
+    max-width: 550px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+}
+
+table > tr {
+    display: flex;
+    flex-direction: row;
+    column-gap: 25px;
+}
+
+table > tr > td {
+    width: fit-content;
+}
+
+.item-label {
+    padding-bottom: 15px;
+    vertical-align: top;
+    font-weight: 600;
+    color: #444444;
+    min-width: 100px;
+}
+
+.item-data {
+    color: #777777;
+}
